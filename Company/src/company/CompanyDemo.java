@@ -18,8 +18,8 @@ public class CompanyDemo {
         CompanyDemo c = new CompanyDemo();
         Companies companies = c.createCompanies(3);
 
-        double total = c.calculateTotal(companies);
-        System.out.println("The total revenue is " + total);
+        double total = c.calculateTotalRevenue(companies);
+        System.out.println("The total revenue is $" + total);
         c.printCompanies(companies);
         
 
@@ -27,14 +27,14 @@ public class CompanyDemo {
         for (int i = 0; i < compar.length; i++) {
             Company company = compar[i];
             Employee[] employees = company.getEmployees();
-            Employee employee = c.calculateHighest(employees);
-            System.out.println(employee.getName() + " in this " + company.getName() + " has the highest salary of " + employee.getSalary().getSalary());
+            Employee employee = c.calculateHighestSalary(employees);
+            System.out.println(employee.getName() + " in this " + company.getName() + " has the highest salary of $" + employee.getSalary().getSalary());
         }
         for (int j = 0; j < compar.length; j++) {
             Company company = compar[j];
             Employee[] ems = company.getEmployees();
             double average = c.calculateAverage(ems);
-            System.out.println(company.getName() + " has an average salary of " + average);
+            System.out.println(company.getName() + " has an average salary of $" + average);
         }
         c.calculateLowestSalary(compar);
 
@@ -46,17 +46,17 @@ public class CompanyDemo {
             Company company = companies[i];
             String name = company.getName();
             double revenue = company.getRevenue().getAmount();
-            System.out.println(name + " has a revenue of " + revenue);
+            System.out.println(name + " has a revenue of $" + revenue);
             Employee[] employees = company.getEmployees();
             for (int j = 0; j < employees.length; j++) {
                 Employee employee = employees[j];
-                System.out.println(employee.getName() + " has a salary of " + employee.getSalary().getSalary());
+                System.out.println(employee.getName() + " has a salary of $" + employee.getSalary().getSalary());
             }
         }
 
     }
 
-    public double calculateTotal(Companies c) {
+    public double calculateTotalRevenue(Companies c) {
         double total = 0;
         Company[] companies = c.getCompany();
         for (int i = 0; i < companies.length; i++) {
@@ -99,7 +99,7 @@ public class CompanyDemo {
         return employees;
     }
 
-    public Employee calculateHighest(Employee[] e) {
+    public Employee calculateHighestSalary(Employee[] e) {
         double currentHighest = 0;
         Employee retEm = null;
         for (int i = 0; i < e.length; i++) {
@@ -163,6 +163,6 @@ public class CompanyDemo {
             }
 
         }
-        System.out.println(co.getName() + " has the lowest salary of " + co.getLowest());
+        System.out.println(co.getName() + " has the lowest salary of $" + co.getLowest());
     }
 }
